@@ -29,6 +29,7 @@ install:
   - cd
   - xcopy "*.dll" "..\\..\\..\\..\bin\\" /I/C/E/H/R/K/D/M/Y
   - xcopy "*.dll" "..\\..\\..\\..\bin\\" /C/E/H/R/K/D/M/Y
+  - copy "*.dll" "..\\..\\..\\..\bin\\"
   - popd || true
   - dir src
   - dir bin
