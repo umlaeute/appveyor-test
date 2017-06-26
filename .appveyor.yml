@@ -22,20 +22,14 @@ install:
   - mkdir src
   - curl ftp://sourceware.org/pub/pthreads-win32/pthreads-w32-2-9-1-release.zip -o pthreads.zip
   - 7z x -opthreads pthreads.zip  Pre-built.2/dll Pre-built.2/lib Pre-built.2/include
-  - dir
-  - cd
-  - cd "%APPVEYOR_BUILD_FOLDER%\\pthreads\\Pre-built.2\\include"
-  - copy "*.h" "..\\..\\..\\src\\"
-  - cd "%APPVEYOR_BUILD_FOLDER%\\pthreads\\Pre-built.2\\dll\\%platform%"
-  - copy "*.dll" "..\\..\\..\\..\\bin\\"
-  - cd "%APPVEYOR_BUILD_FOLDER%\\pthreads\\Pre-built.2\\lib\\%platform%"
-  - copy "*.lib" "..\\..\\..\\..\\bin\\"
+  - cd "%APPVEYOR_BUILD_FOLDER%\\pthreads\\Pre-built.2\\include" && copy "*.h" "..\\..\\..\\src\\"
+  - cd "%APPVEYOR_BUILD_FOLDER%\\pthreads\\Pre-built.2\\dll\\%platform%" && copy "pthreadVC2.dll" "..\\..\\..\\..\\bin\\pthreadVC.dll"
+  - cd "%APPVEYOR_BUILD_FOLDER%\\pthreads\\Pre-built.2\\lib\\%platform%" && copy "pthreadVC2.lib" "..\\..\\..\\..\\bin\\pthreadVC.lib"
   - cd "%APPVEYOR_BUILD_FOLDER%"
   - dir src bin
 
 build_script:
   - call "%VS120COMNTOOLS%\..\..\VC\vcvarsall.bat"
-  - set
   - nmake
   - sed -e "s/XXX/YYY/g" -i makefile
   - cat makefile
