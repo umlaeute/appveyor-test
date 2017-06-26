@@ -21,7 +21,8 @@ install:
   - 7z e -opdbin pdbin.zip pd/src pd/lib/asio
   - cd "%APPVEYOR_BUILD_FOLDER%\\pdbin" && copy "*.dll" "%APPVEYOR_BUILD_FOLDER%\\bin"
   - cd "%APPVEYOR_BUILD_FOLDER%\\pdbin" && copy "*.lib" "%APPVEYOR_BUILD_FOLDER%\\bin"
-  - cd "%APPVEYOR_BUILD_FOLDER%\\pdbin" && copy "asio*.h" pthread.h sched.h semaphore.h "%APPVEYOR_BUILD_FOLDER%\\src"
+  - cd "%APPVEYOR_BUILD_FOLDER%\\pdbin" && copy "asio*.h" "%APPVEYOR_BUILD_FOLDER%\\src"
+  - cd "%APPVEYOR_BUILD_FOLDER%\\pdbin" && copy ginclude.h pthread.h sched.h semaphore.h "%APPVEYOR_BUILD_FOLDER%\\src"
   - cd "%APPVEYOR_BUILD_FOLDER%"
   - dir src bin
 
