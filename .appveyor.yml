@@ -19,8 +19,8 @@ install:
   - mkdir src
   - curl http://msp.ucsd.edu/Software/pd-0.44-3.msw.zip -o pdbin.zip
   - 7z e -opdbin pdbin.zip pd/src pd/lib/asio
-  - set pthreaddir="%APPVEYOR_BUILD_FOLDER%\\pdbin"
-  - cd "%APPVEYOR_BUILD_FOLDER%\\pdbin" && copy "*.dll" "*.lib" "%APPVEYOR_BUILD_FOLDER%\\bin"
+  - cd "%APPVEYOR_BUILD_FOLDER%\\pdbin" && copy "*.dll" "%APPVEYOR_BUILD_FOLDER%\\bin"
+  - cd "%APPVEYOR_BUILD_FOLDER%\\pdbin" && copy "*.lib" "%APPVEYOR_BUILD_FOLDER%\\bin"
   - cd "%APPVEYOR_BUILD_FOLDER%\\pdbin" && copy "asio*.h" pthread.h sched.h semaphore.h "%APPVEYOR_BUILD_FOLDER%\\src"
   - cd "%APPVEYOR_BUILD_FOLDER%"
   - dir src bin
