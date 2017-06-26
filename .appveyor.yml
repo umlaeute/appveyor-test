@@ -3,7 +3,7 @@
 # this automatically builds Pd for W32 using VisualStudio,
 # whenever a new commit is pushed to github...
 #   https://ci.appveyor.com/pure-data/pure-data
-# TODO: fetch pthreadVC.dll/lib from somewhere
+# TODO: fetch pthreadVC.dll/lib from ftp://sourceware.org/pub/pthreads-win32/pthreads-w32-2-9-1-release.zip
 
 
 platform:
@@ -34,6 +34,7 @@ build_script:
   - sed -e 's/^VCSDK *=.*/VCSDK = "%%%%ProgramFiles%%%%%SLASH%Microsoft SDKs%SLASH%Windows%SLASH%v7.1"/' -i makefile
   - cat makefile
   - nmake
+  - cd
 
  
 deploy: off
