@@ -22,9 +22,9 @@ install:
   - unzip pthreads.zip
   - dir
   - dir Pre-built.2\\include\\*.h
-  - pushd Pre-built.2\\include && xcopy *.h ..\\..\\src && popd || true
-  - pushd Pre-build.2\\lib\\%platform%\\ && xcopy *.lib ..\\..\\bin && popd || true
-  - pushd Pre-build.2\\dll\\%platform%\\ && xcopy *.dll ..\\..\\bin && popd || true
+  - pushd Pre-built.2\\include && xcopy *.h ..\\..\\src\\ && popd || true
+  - pushd Pre-build.2\\lib\\%platform%\\ && xcopy *.lib ..\\..\\bin\\ && popd || true
+  - pushd Pre-build.2\\dll\\%platform%\\ && xcopy *.dll ..\\..\\bin\\ && popd || true
   - dir src\\*.h
   - dir bin
 
