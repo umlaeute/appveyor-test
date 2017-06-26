@@ -23,7 +23,10 @@ install:
   - copy "*.dll" "%APPVEYOR_BUILD_FOLDER%\\bin"
   - copy "*.lib" "%APPVEYOR_BUILD_FOLDER%\\bin"
   - copy "asio*.h" "%APPVEYOR_BUILD_FOLDER%\\src"
-  - for %I in (ginclude.h pthread.h sched.h semaphore.h) do copy %I "%APPVEYOR_BUILD_FOLDER%\\src"
+  - copy ginclude.h "%APPVEYOR_BUILD_FOLDER%\\src"
+  - copy pthread.h "%APPVEYOR_BUILD_FOLDER%\\src"
+  - copy sched.h "%APPVEYOR_BUILD_FOLDER%\\src"
+  - copy semaphore.h "%APPVEYOR_BUILD_FOLDER%\\src"
   - cd "%APPVEYOR_BUILD_FOLDER%"
   - dir src bin
 
