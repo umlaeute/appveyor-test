@@ -22,9 +22,12 @@ install:
   - curl ftp://sourceware.org/pub/pthreads-win32/pthreads-w32-2-9-1-release.zip -o pthreads.zip
   - unzip pthreads.zip
   - dir
-  - pushd Pre-built.2\\include ; xcopy "*.h" "..\\..\\src\\" /C/E/H/R/K/D/M/Y ; popd || true
+  - pushd Pre-built.2\\include ; cd; xcopy "*.h" "..\\..\\src\\" /C/E/H/R/K/D/M/Y ; popd || true
   - pushd Pre-build.2\\lib\\%platform%\\ ; xcopy "*.lib" "..\\..\\bin\\" /C/E/H/R/K/D/M/Y ; popd || true
   - pushd Pre-build.2\\dll\\%platform%\\ ; xcopy "*.dll" "..\\..\\bin\\" /C/E/H/R/K/D/M/Y ; popd || true
+  - pushd "Pre-build.2\\dll\\%platform%\\"
+  - xcopy "*.dll" "..\\..\\bin\\" /C/E/H/R/K/D/M/Y
+  - popd || true
   - dir src
   - dir bin
 
