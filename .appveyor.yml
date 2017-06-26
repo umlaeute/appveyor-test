@@ -3,8 +3,6 @@
 # this automatically builds Pd for W32 using VisualStudio,
 # whenever a new commit is pushed to github...
 #   https://ci.appveyor.com/pure-data/pure-data
-# TODO: fetch pthreadVC.dll/lib from ftp://sourceware.org/pub/pthreads-win32/pthreads-w32-2-9-1-release.zip
-
 
 platform:
 - x86
@@ -17,15 +15,13 @@ shallow_clone: true
 
 install:
   - echo init
-  - echo "%APPVEYOR_BUILD_FOLDER%"
   - mkdir bin
   - mkdir src
-  - curl ftp://sourceware.org/pub/pthreads-win32/pthreads-w32-2-9-1-release.zip -o pthreads.zip
-  - 7z x -opthreads pthreads.zip  Pre-built.2/dll Pre-built.2/lib Pre-built.2/include
-  - set pthreaddir="%APPVEYOR_BUILD_FOLDER%\\pthreads\\Pre-built.2"
-  - cd "%pthreaddir%\\include" && copy "*.h" "..\\..\\..\\src\\"
-  - cd "%pthreaddir%\\dll\\%platform%" && copy "pthreadVC2.dll" "..\\..\\..\\..\\bin\\pthreadVC.dll"
-  - cd "%pthreaddir%\\lib\\%platform%" && copy "pthreadVC2.lib" "..\\..\\..\\..\\bin\\pthreadVC.lib"
+  - curl http://msp.ucsd.edu/Software/pd-0.44-3.msw.zip -o pdbin.zip
+  - 7z e -opdbin pdbin.zip pd/src pd/lib/asio
+  - set pthreaddir="%APPVEYOR_BUILD_FOLDER%\\pdbin"
+  - cd "%APPVEYOR_BUILD_FOLDER%\\pdbin" && copy "*.dll" "*.lib" "%APPVEYOR_BUILD_FOLDER%\\bin"
+  - cd "%APPVEYOR_BUILD_FOLDER%\\pdbin" && copy "asio*.h" pthread.h sched.h semaphore.h "%APPVEYOR_BUILD_FOLDER%\\src"
   - cd "%APPVEYOR_BUILD_FOLDER%"
   - dir src bin
 
