@@ -17,24 +17,21 @@ shallow_clone: true
 
 install:
   - echo init
-  - set
   - mkdir bin
   - mkdir src
   - curl ftp://sourceware.org/pub/pthreads-win32/pthreads-w32-2-9-1-release.zip -o pthreads.zip
   - 7z x -opthreads pthreads.zip  Pre-built.2/dll Pre-built.2/lib Pre-built.2/include
   - dir
-#  - pushd "pthreads\\Pre-built.2\\include" ; cd; xcopy "*.h" "..\\..\\..\\src\\" /C/E/H/R/K/D/M/Y ; popd || true
-#  - pushd "pthreads\\Pre-built.2\\lib\\%platform%" ; xcopy "*.lib" "..\\..\\..\\..\bin\\" /C/E/H/R/K/D/M/Y ; popd || true
-#  - pushd "pthreads\\Pre-built.2\\dll\\%platform%" ; xcopy "*.dll" "..\\..\\..\\..\bin\\" /C/E/H/R/K/D/M/Y ; popd || true
+  - cd "pthreads\\Pre-built.2\\include" ; cd; xcopy "*.h" "..\\..\\..\\src\\" /C/E/H/R/K/D/M/Y ; cd %APPVEYOR_BUILD_FOLDER%
+  - cd "pthreads\\Pre-built.2\\lib\\%platform%" ; xcopy "*.lib" "..\\..\\..\\..\bin\\" /C/E/H/R/K/D/M/Y ; cd %APPVEYOR_BUILD_FOLDER%
+#  - cd "pthreads\\Pre-built.2\\dll\\%platform%" ; xcopy "*.dll" "..\\..\\..\\..\bin\\" /C/E/H/R/K/D/M/Y ; cd %APPVEYOR_BUILD_FOLDER%
   - cd
-  - pushd "pthreads\\Pre-built.2\\dll\\%platform%"
-  - cd
+  - cd "pthreads\\Pre-built.2\\dll\\%platform%"
   - xcopy "*.dll" "..\\..\\..\\..\bin\\" /I/C/E/H/R/K/D/M/Y
   - xcopy "*.dll" "..\\..\\..\\..\bin\\" /C/E/H/R/K/D/M/Y
   - copy "*.dll" "..\\..\\..\\..\bin\\"
-  - popd || true
-  - dir src
-  - dir bin
+  - cd %APPVEYOR_BUILD_FOLDER%
+  - dir src bin
 
 build_script:
   - call "%VS120COMNTOOLS%\..\..\VC\vcvarsall.bat"
