@@ -27,6 +27,10 @@ build_script:
   - cat makefile
   - sed -e 's/^VC9\ =.*/VC9\ = "%%VS120COMNTOOLS%%"/' -i makefile
   - cat makefile
+  - sed -e 's/^VC9\ =.*/VC9\ = "\%VS120COMNTOOLS\%"/' -i makefile
+  - cat makefile
+  - sed -e 's/^VC9\ =.*/VC9\ = "%%%%VS120COMNTOOLS%%%%"/' -i makefile
+  - cat makefile
   - nmake
  
 deploy: off
