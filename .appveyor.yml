@@ -25,11 +25,11 @@ build_script:
   - cat makefile
   - sed -e 's/^VC9\ =.*/VC9\ = "foo\\\\\\\\bar"/' -i makefile
   - cat makefile
-  - sed -e 's/^VC9\ =.*/VC9\ = "%%VS120COMNTOOLS%%"/' -i makefile
-  - cat makefile
-  - sed -e 's/^VC9\ =.*/VC9\ = "\%VS120COMNTOOLS\%"/' -i makefile
+  - sed -e 's/^VC9\ =.*/VC9\ = "foo%SLASH%bar"/' -i makefile
   - cat makefile
   - sed -e 's/^VC9\ =.*/VC9\ = "%%%%VS120COMNTOOLS%%%%"/' -i makefile
+  - cat makefile
+  - sed -e 's/^VC9\ =.*/VC9\ = "%%%%VS120COMNTOOLS%%%%%SLASH%..%SLASH%..%SLASH%VS%SLASH%"/' -i makefile
   - cat makefile
   - nmake
  
