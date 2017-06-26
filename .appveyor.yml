@@ -20,7 +20,7 @@ install:
   - mkdir bin
   - mkdir src
   - curl ftp://sourceware.org/pub/pthreads-win32/pthreads-w32-2-9-1-release.zip -o pthreads.zip
-  - 7z x -opthreads pthreads-w32-2-9-1-release.zip  Pre-built.2/dll Pre-built.2/lib Pre-built.2/include
+  - 7z x -opthreads pthreads.zip  Pre-built.2/dll Pre-built.2/lib Pre-built.2/include
   - dir
   - pushd pthreads\\Pre-built.2\\include ; cd; xcopy "*.h" "..\\..\\src\\" /C/E/H/R/K/D/M/Y ; popd || true
   - pushd pthreads\\Pre-built.2\\lib\\%platform%\\ ; xcopy "*.lib" "..\\..\\bin\\" /C/E/H/R/K/D/M/Y ; popd || true
