@@ -31,7 +31,7 @@ build_script:
   - sed -e 's/^VC9\ =.*/VC9\ = "%%%%VS120COMNTOOLS%%%%..%SLASH%..%SLASH%VC%SLASH%"/' -i makefile
   - cat makefile
   - nmake
-  - sed -e 's/^VCSDK *=.*/VCSDK = "%%%%ProgramFiles%%%%\/Microsoft SDKs\/Windows\/v7.1"' -i makefile.msvc
+  - sed -e 's/^VCSDK *=.*/VCSDK = "%%%%ProgramFiles%%%%\/Microsoft SDKs\/Windows\/v7.1"/' -i makefile.msvc
   - cat makefile
   - nmake
 
