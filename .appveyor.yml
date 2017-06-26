@@ -22,7 +22,7 @@ install:
   - cd "%APPVEYOR_BUILD_FOLDER%\\pdbin" && copy "*.dll" "%APPVEYOR_BUILD_FOLDER%\\bin"
   - cd "%APPVEYOR_BUILD_FOLDER%\\pdbin" && copy "*.lib" "%APPVEYOR_BUILD_FOLDER%\\bin"
   - cd "%APPVEYOR_BUILD_FOLDER%\\pdbin" && copy "asio*.h" "%APPVEYOR_BUILD_FOLDER%\\src"
-  - cd "%APPVEYOR_BUILD_FOLDER%\\pdbin" && copy ginclude.h pthread.h sched.h semaphore.h "%APPVEYOR_BUILD_FOLDER%\\src"
+  - cd "%APPVEYOR_BUILD_FOLDER%\\pdbin" && for %I in (ginclude.h pthread.h sched.h semaphore.h) do copy "%I" "%APPVEYOR_BUILD_FOLDER%\\src"
   - cd "%APPVEYOR_BUILD_FOLDER%"
   - dir src bin
 
