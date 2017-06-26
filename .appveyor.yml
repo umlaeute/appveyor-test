@@ -22,9 +22,10 @@ install:
   - mkdir src
   - curl ftp://sourceware.org/pub/pthreads-win32/pthreads-w32-2-9-1-release.zip -o pthreads.zip
   - 7z x -opthreads pthreads.zip  Pre-built.2/dll Pre-built.2/lib Pre-built.2/include
-  - cd "%APPVEYOR_BUILD_FOLDER%\\pthreads\\Pre-built.2\\include" && copy "*.h" "..\\..\\..\\src\\"
-  - cd "%APPVEYOR_BUILD_FOLDER%\\pthreads\\Pre-built.2\\dll\\%platform%" && copy "pthreadVC2.dll" "..\\..\\..\\..\\bin\\pthreadVC.dll"
-  - cd "%APPVEYOR_BUILD_FOLDER%\\pthreads\\Pre-built.2\\lib\\%platform%" && copy "pthreadVC2.lib" "..\\..\\..\\..\\bin\\pthreadVC.lib"
+  - set pthreaddir="%APPVEYOR_BUILD_FOLDER%\\pthreads\\Pre-built.2"
+  - cd "%pthreaddir%\\include" && copy "*.h" "..\\..\\..\\src\\"
+  - cd "%pthreaddir%\\dll\\%platform%" && copy "pthreadVC2.dll" "..\\..\\..\\..\\bin\\pthreadVC.dll"
+  - cd "%pthreaddir%\\lib\\%platform%" && copy "pthreadVC2.lib" "..\\..\\..\\..\\bin\\pthreadVC.lib"
   - cd "%APPVEYOR_BUILD_FOLDER%"
   - dir src bin
 
