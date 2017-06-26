@@ -18,7 +18,7 @@ all: foo.exe
 
 .SUFFIXES: .obj
 .c.obj:
-	cc /c $(CFLAGS) -I. -I$(VC9)\\Include -I$(VSCDK)\\Include   /Tc$*.c
+	cl /c $(CFLAGS) -I. -I$(VC9)\\Include -I$(VSCDK)\\Include   /Tc$*.c
 
 foo.exe: foo.obj
 	link /nologo /OUT:foo.exe /INCREMENTAL:NO foo.obj $(LDIR)\\kernel32.lib $(LD2)\\libcmt.lib $(LD2)\\oldnames.lib
