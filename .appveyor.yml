@@ -19,6 +19,8 @@ build_script:
   - call "%VS120COMNTOOLS%\..\..\VC\vcvarsall.bat"
   - set
   - nmake
+  - sed -e "s/XXX/YYY/g" -i makefile
+  - cat makefile
   - sed -e "s/^VC9 *=.*/VC9 = \"\%VS120COMNTOOLS\%%SLASH%..%SLASH4%..\\\\VC\\\\\"/" -i makefile
   - cat makefile
   - nmake
