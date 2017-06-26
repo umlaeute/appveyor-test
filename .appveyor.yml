@@ -23,7 +23,7 @@ build_script:
   - cat makefile
   - sed -e 's/YYY/ZZZ/g' -i makefile || true
   - cat makefile
-  - sed -e "s/^VC9\ =.*/VC9\ = foobar" -i makefile
+  - sed -e 's/^VC9 =.*/VC9 = foobar/' -i makefile
   - cat makefile
   - sed -e "s/^VC9\ =.*/VC9\ = \"foobar\"" -i makefile
   - cat makefile
