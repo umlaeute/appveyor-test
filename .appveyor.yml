@@ -35,10 +35,13 @@ install:
 
 build_script:
   - echo build_script
+  - echo "==================== vsvarsall.bat =================="
   - cat "%VS120COMNTOOLS%\..\..\VC\vcvarsall.bat"
+  - echo "====================== setenv.bat ==================="
+  - cat "%ProgramFiles%\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd"
+  - echo "==================== ============= =================="
   - if "%platform%" == "x64" "%ProgramFiles%\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /x64
-  - if "%platform%" == "x64" call "%VS120COMNTOOLS%\..\..\VC\vcvarsall.bat" x86_amd64
-  - if "%platform%" == "x86" call "%VS120COMNTOOLS%\..\..\VC\vcvarsall.bat"
+  - call "%VS120COMNTOOLS%\..\..\VC\vcvarsall.bat" %platform%
   - set
   - nmake test
   - sed -e "s/XXX/YYY/g" -i makefile
