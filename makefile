@@ -32,7 +32,7 @@ test:
 
 .SUFFIXES: .obj
 .c.obj:
-	cl /c $(CFLAGS) -I. -I$(VC)\\Include -I$(VSCDK)\\Include   /Tc$*.c
+	cl /c $(CFLAGS) -I. -I$(VC)\\Include -I$(VCSDK)\\Include   /Tc$*.c
 
 foo.exe: foo.obj
 	link /nologo /OUT:foo.exe /INCREMENTAL:NO foo.obj  /NODEFAULTLIB:libcmt /NODEFAULTLIB:oldnames /LIBPATH:$(LDIR) /LIBPATH:$(LD2) kernel32.lib $(LD2)\\libcmt.lib $(LD2)\\oldnames.lib
