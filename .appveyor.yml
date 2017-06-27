@@ -37,14 +37,14 @@ build_script:
   - echo build_script
   - echo "ProgramFiles %ProgramFiles%"
   - echo "VS120COMNTOOLS %VS120COMNTOOLS%"
-  - echo "==================== vsvarsall.bat =================="
-  - cat "%VS120COMNTOOLS%\..\..\VC\vcvarsall.bat"
-  - echo "====================== setenv.bat ==================="
-  - cat "%ProgramFiles%\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd"
+  - nmake test
+#  - echo "==================== vsvarsall.bat =================="
+#  - cat "%VS120COMNTOOLS%\..\..\VC\vcvarsall.bat"
+#  - echo "====================== setenv.bat ==================="
+#  - cat "%ProgramFiles%\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd"
   - echo "==================== ============= =================="
   - call "%ProgramFiles%\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /%platform%
   - call "%VS120COMNTOOLS%\..\..\VC\vcvarsall.bat" %platform%
-  - set
   - nmake test
   - sed -e "s/XXX/YYY/g" -i makefile
   - cat makefile
