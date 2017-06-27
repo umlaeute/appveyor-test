@@ -12,7 +12,7 @@ CFLAGS =  /nologo /W3 /DWIN32 /DWINDOWS /Ox \
 
 .PHONY: test
 
-all: foo.exe test
+all: foo.exe
 
 test:
 	echo "VCSDK: $(VCSDK)"
