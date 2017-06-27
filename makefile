@@ -1,7 +1,9 @@
 ## nmake file for testing appveyor
 ## XXX
 
+# use %WindowsSDKDir% instead
 VCSDK = "%ProgramFiles%\\Microsoft SDKs\\Windows\\v6.0A"
+# use %VCINSTALLDIR% instead:
 VC = "%ProgramFiles%\\Microsoft Visual Studio 9.0\\VC"
 
 LDIR = $(VCSDK)\\lib
@@ -11,8 +13,6 @@ AFLAGS = /D__i386__
 CFLAGS =  /nologo /Ox /W3 \
 	/DWIN32 /DWINDOWS \
 	$(AFLAGS) /D_CRT_SECURE_NO_WARNINGS
-
-VCINSTALLDIR ?= /foo/bar/baz
 
 .PHONY: test
 
