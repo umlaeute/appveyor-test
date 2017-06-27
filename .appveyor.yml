@@ -48,13 +48,13 @@ build_script:
   - cat makefile
   - sed -e 's/YYY/ZZZ/g' -i makefile || true
   - cat makefile
-  - sed -e 's/^VC9\ =.*/VC9\ = "foo\\\\\\\\bar"/' -i makefile
+  - sed -e 's/^VC\ =.*/VC\ = "foo\\\\\\\\bar"/' -i makefile
   - cat makefile
-  - sed -e 's/^VC9\ =.*/VC9\ = "foo%SLASH%bar"/' -i makefile
+  - sed -e 's/^VC\ =.*/VC\ = "foo%SLASH%bar"/' -i makefile
   - cat makefile
-  - sed -e 's/^VC9\ =.*/VC9\ = "%%%%VS120COMNTOOLS%%%%"/' -i makefile
+  - sed -e 's/^VC\ =.*/VC\ = "%%%%VS120COMNTOOLS%%%%"/' -i makefile
   - cat makefile
-  - sed -e 's/^VC9\ =.*/VC9\ = "%%%%VS120COMNTOOLS%%%%..%SLASH%..%SLASH%VC"/' -i makefile
+  - sed -e 's/^VC\ =.*/VC\ = "%%%%VS120COMNTOOLS%%%%..%SLASH%..%SLASH%VC"/' -i makefile
   - cat makefile
   - nmake test
   - sed -e 's/^VCSDK *=.*/VCSDK = "%%%%ProgramFiles%%%%%SLASH%Microsoft SDKs%SLASH%Windows%SLASH%v7.1"/' -i makefile
