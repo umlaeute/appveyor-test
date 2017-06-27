@@ -37,7 +37,6 @@ build_script:
   - echo build_script
   - echo "ProgramFiles %ProgramFiles%"
   - echo "VS120COMNTOOLS %VS120COMNTOOLS%"
-  - nmake test
 #  - echo "==================== vsvarsall.bat =================="
 #  - cat "%VS120COMNTOOLS%\..\..\VC\vcvarsall.bat"
 #  - echo "====================== setenv.bat ==================="
@@ -66,6 +65,7 @@ build_script:
   - cd
   - file foo.exe
   - file "bin\\pthreadVC.dll"
+  - which nmake
 
 test_script:
   - foo.exe
