@@ -29,6 +29,7 @@ test:
 	echo "VCSDK: $(VCSDK)"
 	echo "VC: $(VC)"
 	echo "VCINSTALLDIR: $(VCINSTALLDIR)"
+	echo "PATH: $(PATH)"
 
 .SUFFIXES: .obj
 .c.obj:
