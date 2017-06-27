@@ -48,6 +48,7 @@ build_script:
   - echo %VCINSTALLDIR%
   - echo %WindowsSDKDir%
   - nmake test
+  - nmake -f makefile.test
   - sed -e "s/XXX/YYY/g" -i makefile
   - cat makefile
   - sed -e 's/YYY/ZZZ/g' -i makefile || true
@@ -68,7 +69,8 @@ build_script:
   - cd
   - file foo.exe
   - file "bin\\pthreadVC.dll"
-  - which nmake
+  - make test
+  - make foo.exe
 
 test_script:
   - foo.exe

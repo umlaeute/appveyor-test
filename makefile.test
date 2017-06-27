@@ -1,0 +1,26 @@
+## nmake file for testing appveyor
+
+.PHONY: test set
+
+MYDEFS = 
+# \
+!ifndef 0 # \
+# nmake code here \
+!IFDEF VCINSTALLDIR # \
+MYDEFS = $(MYDEFS) VCINSTALLDIR #\
+!ENDIF # \
+!IFDEF WindowsSDKDir # \
+MYDEFS = $(MYDEFS) WindowsSDKDir # \
+!ENDIF # \
+!IFDEF WINDOWSSDKDIR # \
+MYDEFS = $(MYDEFS) WINDOWSSDKDIR # \
+!ENDIF # \
+!ENDIF
+
+test:
+	@echo "VCINSTALLDIR: $(VCINSTALLDIR)"
+	@echo "WindowsSDKDir: $(WindowsSDKDir)"
+	@echo "WINDOWSSDKDIR: $(WINDOWSSDKDIR)"
+	@echo "MYDEFS: $(MYDEFS)"
+set:
+	set
