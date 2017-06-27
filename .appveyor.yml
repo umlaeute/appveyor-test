@@ -68,6 +68,6 @@ build_script:
   - file "bin\\pthreadVC.dll"
 
 test_script:
-  - cmd foo.exe
+  - foo.exe
 
 deploy: off
