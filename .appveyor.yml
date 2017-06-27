@@ -72,3 +72,7 @@ test_script:
   - foo.exe
 
 deploy: off
+
+artifacts:
+  - path: foo.exe
+    name: Foo%platform%
