@@ -4,11 +4,6 @@
 # whenever a new commit is pushed to github...
 #   https://ci.appveyor.com/pure-data/pure-data
 
-platform:
-- x86
-- x64
-
-
 matrix:
   allow_failures:
     - platform: x64
