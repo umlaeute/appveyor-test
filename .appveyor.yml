@@ -69,8 +69,6 @@ build_script:
   - cd
   - file foo.exe
   - file "bin\\pthreadVC.dll"
-  - make test
-  - make foo.exe
 
 test_script:
   - foo.exe
