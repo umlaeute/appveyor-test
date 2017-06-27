@@ -9,9 +9,9 @@ WindowsSDKDir = "%ProgramFiles%\\Microsoft SDKs\\Windows\\v6.0A"
 !ENDIF
 
 # use %WindowsSDKDir% instead
-VCSDK = $(WindowsSDKDir)
+VCSDK = "$(WindowsSDKDir)"
 # use %VCINSTALLDIR% instead:
-VC = $(VCINSTALLDIR)
+VC = "$(VCINSTALLDIR)"
 
 LDIR = $(VCSDK)\\lib
 LD2 = $(VC)\\lib
