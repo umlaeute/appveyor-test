@@ -1,7 +1,7 @@
 ## nmake file for testing appveyor
 ## XXX
 
-!IFNDEF $(VCINSTALLDIR)
+!IFNDEF VCINSTALLDIR
 VCINSTALLDIR = /foo/bar/baz
 !ENDIF
 
