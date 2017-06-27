@@ -12,6 +12,8 @@ CFLAGS =  /nologo /Ox /W3 \
 	/DWIN32 /DWINDOWS \
 	$(AFLAGS) /D_CRT_SECURE_NO_WARNINGS
 
+VCINSTALLDIR ?= /foo/bar/baz
+
 .PHONY: test
 
 all: foo.exe
@@ -19,7 +21,7 @@ all: foo.exe
 test:
 	echo "VCSDK: $(VCSDK)"
 	echo "VC: $(VC)"
-
+	echo "VCINSTALLDIR: $(VCINSTALLDIR)"
 
 .SUFFIXES: .obj
 .c.obj:
