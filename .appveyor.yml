@@ -35,6 +35,8 @@ install:
 
 build_script:
   - echo build_script
+  - echo "ProgramFiles %ProgramFiles%"
+  - echo "VS120COMNTOOLS %VS120COMNTOOLS%"
   - echo "==================== vsvarsall.bat =================="
   - cat "%VS120COMNTOOLS%\..\..\VC\vcvarsall.bat"
   - echo "====================== setenv.bat ==================="
