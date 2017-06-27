@@ -65,5 +65,6 @@ build_script:
   - nmake
   - cd
   - file foo.exe
+  - file "bin\\pthreadVC.dll"
 
 deploy: off
