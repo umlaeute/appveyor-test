@@ -1,6 +1,10 @@
 ## nmake file for testing appveyor
 ## XXX
 
+!IFNDEF $(VCINSTALLDIR)
+VCINSTALLDIR = /foo/bar/baz
+!ENDIF
+
 # use %WindowsSDKDir% instead
 VCSDK = "%ProgramFiles%\\Microsoft SDKs\\Windows\\v6.0A"
 # use %VCINSTALLDIR% instead:
