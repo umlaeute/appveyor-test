@@ -2,13 +2,16 @@
 ## XXX
 
 !IFNDEF VCINSTALLDIR
-VCINSTALLDIR = /foo/bar/baz
+VCINSTALLDIR = "%ProgramFiles%\\Microsoft Visual Studio 9.0\\VC"
+!ENDIF
+!IFNDEF WindowsSDKDir
+WindowsSDKDir = "%ProgramFiles%\\Microsoft SDKs\\Windows\\v6.0A"
 !ENDIF
 
 # use %WindowsSDKDir% instead
-VCSDK = "%ProgramFiles%\\Microsoft SDKs\\Windows\\v6.0A"
+VCSDK = $(WindowsSDKDir)
 # use %VCINSTALLDIR% instead:
-VC = "%ProgramFiles%\\Microsoft Visual Studio 9.0\\VC"
+VC = $(VCINSTALLDIR)
 
 LDIR = $(VCSDK)\\lib
 LD2 = $(VC)\\lib
