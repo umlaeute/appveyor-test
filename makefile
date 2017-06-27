@@ -11,28 +11,28 @@ VCSDK = "C:/Program Files/Microsoft SDKs/Windows/v6.0A"
 # use %VCINSTALLDIR% instead:
 VC9 = "C:/Program Files/Microsoft Visual Studio 9.0/VC"
 
-EXTRA_LIBDIR=
+EXTRA_LIBPATH=
 
 # \
 !ifndef 0 # \
 # nmake code here \
 !IFNDEF VCINSTALLDIR # \
 VCINSTALLDIR = $(VC9) # \
-EXTRA_LIBDIR = /L$(VC9)/lib $(EXTRA_LIBDIR) # \
+EXTRA_LIBPATH = /LIBPATH:$(VC9)/lib $(EXTRA_LIBPATH) # \
 !ENDIF # \
 !IFNDEF WindowsSDKDir # \
 WindowsSDKDir = $(VCSDK) # \
-EXTRA_LIBDIR = /L$(VCSDK)/lib $(EXTRA_LIBDIR)# \
+EXTRA_LIBPATH = /LIBPATH:$(VCSDK)/lib $(EXTRA_LIBPATH)# \
 !ENDIF # \
 !else
 # GNU make code here
 ifndef VCINSTALLDIR
 VCINSTALLDIR = $(VC9)
-EXTRA_LIBDIR += /L$(VC9)/lib
+EXTRA_LIBPATH += /LIBPATH:$(VC9)/lib
 endif
 ifndef VCSDK
 WindowsSDKDir = $(VCSDK)
-EXTRA_LIBDIR += /L$(VCSDK)/lib
+EXTRA_LIBPATH += /LIBPATH:$(VCSDK)/lib
 endif
 # \
 !endif
@@ -58,6 +58,6 @@ set:
 	$(MSCC) /c $(CFLAGS) /I. /Tc$*.c
 
 foo.exe: foo.obj
-	$(MSLN) /nologo /OUT:foo.exe /INCREMENTAL:NO foo.obj /NODEFAULTLIB:libcmt /NODEFAULTLIB:oldnames $(EXTRA_LIBDIR) kernel32.lib libcmt.lib oldnames.lib
+	$(MSLN) /nologo /OUT:foo.exe /INCREMENTAL:NO foo.obj /NODEFAULTLIB:libcmt /NODEFAULTLIB:oldnames $(EXTRA_LIBPATH) kernel32.lib libcmt.lib oldnames.lib
 
 
