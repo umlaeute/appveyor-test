@@ -62,7 +62,7 @@ build_script:
 #  - sed -e 's/^VCSDK *=.*/VCSDK = "%%%%ProgramFiles%%%%%SLASH%Microsoft SDKs%SLASH%Windows%SLASH%v7.1"/' -i makefile
 #  - cat makefile
   - nmake test
-  - nmake foo.exe
+  - nmake foo.exe AFLAGS=%AFLAGS%
   - cd
   - file foo.exe
   - file "bin\\pthreadVC.dll"
