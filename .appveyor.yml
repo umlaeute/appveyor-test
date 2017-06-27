@@ -32,7 +32,7 @@ install:
 
 build_script:
   - call "%VS120COMNTOOLS%\..\..\VC\vcvarsall.bat"
-#  - nmake
+  - nmake test
   - sed -e "s/XXX/YYY/g" -i makefile
   - cat makefile
   - sed -e 's/YYY/ZZZ/g' -i makefile || true
@@ -45,9 +45,10 @@ build_script:
   - cat makefile
   - sed -e 's/^VC9\ =.*/VC9\ = "%%%%VS120COMNTOOLS%%%%..%SLASH%..%SLASH%VC"/' -i makefile
   - cat makefile
-#  - nmake
+  - nmake test
   - sed -e 's/^VCSDK *=.*/VCSDK = "%%%%ProgramFiles%%%%%SLASH%Microsoft SDKs%SLASH%Windows%SLASH%v7.1"/' -i makefile
   - cat makefile
+  - nmake test
   - nmake
   - cd
 deploy: off
