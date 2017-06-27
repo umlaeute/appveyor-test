@@ -50,6 +50,4 @@ build_script:
   - cat makefile
   - nmake
   - cd
-
- 
 deploy: off

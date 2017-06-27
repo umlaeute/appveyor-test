@@ -21,6 +21,6 @@ all: foo.exe
 	cl /c $(CFLAGS) -I. -I$(VC9)\\Include -I$(VSCDK)\\Include   /Tc$*.c
 
 foo.exe: foo.obj
-	link /nologo /OUT:foo.exe /INCREMENTAL:NO foo.obj /LIBPATH:$(LDIR) /LIBPATH:$(LD2) kernel32.lib libcmt.lib oldnames.lib
+	link /nologo /OUT:foo.exe /INCREMENTAL:NO foo.obj  /NODEFAULTLIB:libcmt /NODEFAULTLIB:oldnames /LIBPATH:$(LDIR) /LIBPATH:$(LD2) kernel32.lib $(LD2)\\libcmt.lib $(LD2)\\oldnames.lib
 
 
