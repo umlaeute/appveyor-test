@@ -17,9 +17,9 @@ environment:
   SLASH: "\\\\\\\\"
   matrix:
   - platform: x86
-    AFLAGS="/D__i386__"
+    AFLAGS: "/D__i386__"
   - platform: x64
-    AFLAGS="/D__x86_64__"
+    AFLAGS: "/D__x86_64__"
 
 shallow_clone: true
 
