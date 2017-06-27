@@ -45,6 +45,8 @@ build_script:
   - echo "==================== ============= =================="
   - call "%ProgramFiles%\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /%platform%
   - call "%VS120COMNTOOLS%\..\..\VC\vcvarsall.bat" %platform%
+  - echo %VCINSTALLDIR%
+  - echo %WindowsSDKDir%
   - nmake test
   - sed -e "s/XXX/YYY/g" -i makefile
   - cat makefile

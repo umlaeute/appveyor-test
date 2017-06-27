@@ -30,7 +30,7 @@ ifndef VCINSTALLDIR
 VCINSTALLDIR = $(VC9)
 EXTRA_LIBPATH += /LIBPATH:$(VC9)/lib
 endif
-ifndef VCSDK
+ifndef WindowsSDKDir
 WindowsSDKDir = $(VCSDK)
 EXTRA_LIBPATH += /LIBPATH:$(VCSDK)/lib
 endif
