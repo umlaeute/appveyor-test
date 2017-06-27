@@ -19,7 +19,7 @@ environment:
   - platform: x86
     AFLAGS="/D__i386__"
   - platform: x64
-    AFLAGS="/D__amd64__"
+    AFLAGS="/D__x86_64__"
 
 shallow_clone: true
 
