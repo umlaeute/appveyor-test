@@ -42,7 +42,7 @@ build_script:
   - echo "====================== setenv.bat ==================="
   - cat "%ProgramFiles%\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd"
   - echo "==================== ============= =================="
-  - if "%platform%" == "x64" "%ProgramFiles%\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /x64
+  - call "%ProgramFiles%\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /%platform%
   - call "%VS120COMNTOOLS%\..\..\VC\vcvarsall.bat" %platform%
   - set
   - nmake test
