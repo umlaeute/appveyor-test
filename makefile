@@ -36,6 +36,6 @@ test:
 	cl /c $(CFLAGS) /I. /Tc$*.c
 
 foo.exe: foo.obj
-	link /nologo /OUT:foo.exe /INCREMENTAL:NO foo.obj /NODEFAULTLIB:libcmt /NODEFAULTLIB:oldnames /LIBPATH:$(LDIR) /LIBPATH:$(LD2) kernel32.lib libcmt.lib oldnames.lib
+	link /nologo /OUT:foo.exe /INCREMENTAL:NO foo.obj /LIBPATH:$(LDIR) /LIBPATH:$(LD2) kernel32.lib
 
 
