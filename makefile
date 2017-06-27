@@ -18,11 +18,11 @@ EXTRA_LIBDIR=
 # nmake code here \
 !IFNDEF VCINSTALLDIR # \
 VCINSTALLDIR = $(VC9) # \
-EXTRA_LIBDIR += /L$(VC9)/lib # \
+EXTRA_LIBDIR = /L$(VC9)/lib $(EXTRA_LIBDIR) # \
 !ENDIF # \
 !IFNDEF WindowsSDKDir # \
 WindowsSDKDir = $(VCSDK) # \
-EXTRA_LIBDIR += /L$(VCSDK)/lib # \
+EXTRA_LIBDIR = /L$(VCSDK)/lib $(EXTRA_LIBDIR)# \
 !ENDIF # \
 !else
 # GNU make code here
