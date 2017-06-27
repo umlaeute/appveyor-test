@@ -6,9 +6,11 @@ VC = "%ProgramFiles%\\Microsoft Visual Studio 9.0\\VC"
 
 LDIR = $(VCSDK)\\lib
 LD2 = $(VC)\\lib
-CFLAGS =  /nologo /W3 /DWIN32 /DWINDOWS /Ox \
-	-D__i386__ \
-        -D_CRT_SECURE_NO_WARNINGS
+
+AFLAGS = /D__i386__
+CFLAGS =  /nologo /Ox /W3 \
+	/DWIN32 /DWINDOWS \
+	$(AFLAGS) /D_CRT_SECURE_NO_WARNINGS
 
 .PHONY: test
 
