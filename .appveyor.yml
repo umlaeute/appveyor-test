@@ -64,4 +64,6 @@ build_script:
   - nmake test
   - nmake
   - cd
+  - file foo.exe
+
 deploy: off
