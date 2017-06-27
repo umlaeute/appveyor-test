@@ -10,8 +10,11 @@ CFLAGS =  /nologo /W3 /DWIN32 /DWINDOWS /Ox \
 	-D__i386__ \
         -D_CRT_SECURE_NO_WARNINGS
 
+.PHONY: test
 
-all: foo.exe
+all: foo.exe test
+
+test:
 	echo "VCSDK: $(VCSDK)"
 	echo "VC9: $(VC9)"
 
