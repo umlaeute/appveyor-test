@@ -37,6 +37,8 @@ build_script:
   - echo build_script
   - echo "ProgramFiles %ProgramFiles%"
   - echo "VS120COMNTOOLS %VS120COMNTOOLS%"
+  - dir "%VSSDK140Install%"
+  - dir "%VS140COMNTOOLS%"
   - set
   - call "%VS120COMNTOOLS%\\..\\..\\VC\\bin\\nmake" test
 #  - echo "==================== vsvarsall.bat =================="
@@ -44,8 +46,8 @@ build_script:
 #  - echo "====================== setenv.bat ==================="
 #  - cat "%ProgramFiles%\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd"
   - echo "==================== ============= =================="
-  - call "%ProgramFiles%\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /%platform%
-  - call "%VS120COMNTOOLS%\..\..\VC\vcvarsall.bat" %platform%
+  - call "%VSSDK140Install%\Bin\SetEnv.cmd" /%platform%
+  - call "%VS140COMNTOOLS%\..\..\VC\vcvarsall.bat" %platform%
   - echo %VCINSTALLDIR%
   - echo %WindowsSDKDir%
   - nmake test set
