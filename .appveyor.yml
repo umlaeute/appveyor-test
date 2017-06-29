@@ -43,8 +43,8 @@ build_script:
   - cd
   - dir
   - cd "%ProgramFiles%"
-  - dir /b/s SetEnv.bat
-  - dir /b/s vcvarsall.bat
+  - call dir /b/s SetEnv.bat
+  - call dir /b/s vcvarsall.bat
   - cd "%APPVEYOR_BUILD_FOLDER%"
   - set
   - call "%VS120COMNTOOLS%\\..\\..\\VC\\bin\\nmake" test
