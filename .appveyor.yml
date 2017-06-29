@@ -40,12 +40,12 @@ build_script:
   - dir "%VSSDK140Install%"
   - dir "%VS140COMNTOOLS%"
   - cd "%ProgramFiles%"
-  - dir /b/s  vsvarsall.bat
+  - dir /b/s vcvarsall.bat
   - dir /b/s SetEnv.bat
   - cd "%APPVEYOR_BUILD_FOLDER%"
   - set
   - call "%VS120COMNTOOLS%\\..\\..\\VC\\bin\\nmake" test
-#  - echo "==================== vsvarsall.bat =================="
+#  - echo "==================== vcvarsall.bat =================="
 #  - cat "%VS120COMNTOOLS%\..\..\VC\vcvarsall.bat"
 #  - echo "====================== setenv.bat ==================="
 #  - cat "%ProgramFiles%\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd"
