@@ -37,6 +37,7 @@ build_script:
   - echo build_script
   - echo "ProgramFiles %ProgramFiles%"
   - echo "VS120COMNTOOLS %VS120COMNTOOLS%"
+  - set
   - call "%VS120COMNTOOLS%\\..\\..\\VC\\bin\\nmake" test
 #  - echo "==================== vsvarsall.bat =================="
 #  - cat "%VS120COMNTOOLS%\..\..\VC\vcvarsall.bat"
@@ -47,7 +48,7 @@ build_script:
   - call "%VS120COMNTOOLS%\..\..\VC\vcvarsall.bat" %platform%
   - echo %VCINSTALLDIR%
   - echo %WindowsSDKDir%
-  - nmake test
+  - nmake test set
   - nmake -f makefile.test
   - sed -e "s/XXX/YYY/g" -i makefile
   - cat makefile
