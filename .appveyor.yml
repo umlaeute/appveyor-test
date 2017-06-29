@@ -39,8 +39,10 @@ build_script:
   - echo "VS120COMNTOOLS %VS120COMNTOOLS%"
   - dir "%VSSDK140Install%"
   - dir "%VS140COMNTOOLS%"
-  - dir "%ProgramFiles%" vsvarsall.bat /b/s
-  - dir "%ProgramFiles%" SetEnv.bat /b/s
+  - cd "%ProgramFiles%"
+  - dir /b/s  vsvarsall.bat
+  - dir /b/s SetEnv.bat
+  - cd "%APPVEYOR_BUILD_FOLDER%"
   - set
   - call "%VS120COMNTOOLS%\\..\\..\\VC\\bin\\nmake" test
 #  - echo "==================== vsvarsall.bat =================="
