@@ -6,6 +6,9 @@ MSLN = link
 COPY = copy
 DELETE = del
 
+WISH = wish85.exe
+
+
 # use %WindowsSDKDir% instead
 VCSDK = "C:/Program Files/Microsoft SDKs/Windows/v6.0A"
 # use %VCINSTALLDIR% instead:
@@ -40,6 +43,7 @@ endif
 AFLAGS = /D__i386__
 CFLAGS =  /nologo /Ox /W3 \
 	/DWIN32 /DWINDOWS \
+        /DWISH=\'"$(WISH)"\' \
 	$(AFLAGS) /D_CRT_SECURE_NO_WARNINGS
 
 .PHONY: test set
