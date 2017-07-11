@@ -24,6 +24,9 @@ install:
   - mkdir bin
   - mkdir src
 
+  - cat "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\INCLUDE\\io.h"
+  - cat "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\INCLUDE\\errno.h"
+
   - curl ftp://sourceware.org/pub/pthreads-win32/pthreads-w32-2-9-1-release.zip -o pthreads.zip
   - 7z x -opthreads pthreads.zip  Pre-built.2/dll Pre-built.2/lib Pre-built.2/include
   - set pthreaddir="%APPVEYOR_BUILD_FOLDER%\\pthreads\\Pre-built.2"
