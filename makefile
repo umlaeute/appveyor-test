@@ -41,7 +41,7 @@ endif
 !endif
 
 AFLAGS = /D__i386__
-CFLAGS = /E /nologo /Ox /W3 \
+CFLAGS = /nologo /Ox /W3 \
 	/DWIN32 /DWINDOWS \
         /DWISH=\"$(WISH)\" \
 	$(AFLAGS) /D_CRT_SECURE_NO_WARNINGS
