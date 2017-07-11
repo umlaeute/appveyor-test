@@ -10,12 +10,14 @@ matrix:
 
 environment:
   matrix:
-  - WISH:
-  - WISH: splash
   - platform: x86
     AFLAGS: "/D__i386__"
   - platform: x64
     AFLAGS: "/D__x86_64__"
+  - platform: x64
+    AFLAGS: "/D__x86_64__"
+    WISH: "splash"
+
 
 shallow_clone: true
 
@@ -24,8 +26,7 @@ build_script:
   - call "%ProgramFiles%\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /%platform%
   - call "%VS120COMNTOOLS%\..\..\VC\vcvarsall.bat" %platform%
   - nmake test
-  - if "%WISH%" == "" nmake foo.exe AFLAGS=%AFLAGS%
-  - if "%WISH%" != "" nmake foo.exe AFLAGS=%AFLAGS% WISH=%WISH%
+  - if "%WISH%" == "" nmake foo.exe AFLAGS=%AFLAGS% else nmake foo.exe AFLAGS=%AFLAGS% WISH=%WISH%
 
 test_script:
   - foo.exe
