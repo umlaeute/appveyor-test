@@ -10,8 +10,8 @@ matrix:
 
 environment:
   matrix:
-  - WISH=
-  - WISH=splash
+  - WISH:
+  - WISH: splash
   - platform: x86
     AFLAGS: "/D__i386__"
   - platform: x64
