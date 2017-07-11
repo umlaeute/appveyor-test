@@ -6,7 +6,7 @@ MSLN = link
 COPY = copy
 DELETE = del
 
-WISH = wish85.exe
+WISH = swish.exe
 
 
 # use %WindowsSDKDir% instead
