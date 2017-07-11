@@ -38,50 +38,10 @@ install:
 
 build_script:
   - echo build_script
-  - echo "ProgramFiles %ProgramFiles%"
-  - echo "VS120COMNTOOLS %VS120COMNTOOLS%"
-  - dir "%VSSDK140Install%"
-  - dir "%VS140COMNTOOLS%"
-  - cd "%VS120COMNTOOLS%\..\..\VC"
-  - cd
-#  - dir
-#  - cd "%ProgramFiles%"
-#  - call dir /b/s SetEnv.bat
-#  - call dir /b/s vcvarsall.bat
-  - cd "%APPVEYOR_BUILD_FOLDER%"
-#  - set
-#  - call "%VS120COMNTOOLS%\\..\\..\\VC\\bin\\nmake" test
-##  - echo "==================== vcvarsall.bat =================="
-##  - cat "%VS120COMNTOOLS%\..\..\VC\vcvarsall.bat"
-##  - echo "====================== setenv.bat ==================="
-##  - cat "%ProgramFiles%\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd"
-  - echo "==================== ============= =================="
-  - call "%VSSDK140Install%\Bin\SetEnv.cmd" /%platform%
-  - call "%VS140COMNTOOLS%\..\..\VC\vcvarsall.bat" %platform%
-  - echo %VCINSTALLDIR%
-  - echo %WindowsSDKDir%
-  - nmake test set
-  - nmake -f makefile.test
-  - sed -e "s/XXX/YYY/g" -i makefile
-  - cat makefile
-  - sed -e 's/YYY/ZZZ/g' -i makefile || true
-  - cat makefile
-#  - sed -e 's/^VC\ =.*/VC\ = "foo\\\\\\\\bar"/' -i makefile
-#  - cat makefile
-#  - sed -e 's/^VC\ =.*/VC\ = "foo%SLASH%bar"/' -i makefile
-#  - cat makefile
-#  - sed -e 's/^VC\ =.*/VC\ = "%%%%VS120COMNTOOLS%%%%"/' -i makefile
-#  - cat makefile
-#  - sed -e 's/^VC\ =.*/VC\ = "%%%%VS120COMNTOOLS%%%%..%SLASH%..%SLASH%VC"/' -i makefile
-#  - cat makefile
-#  - nmake test
-#  - sed -e 's/^VCSDK *=.*/VCSDK = "%%%%ProgramFiles%%%%%SLASH%Microsoft SDKs%SLASH%Windows%SLASH%v7.1"/' -i makefile
-#  - cat makefile
+  - call "%ProgramFiles%\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /%platform%
+  - call "%VS120COMNTOOLS%\..\..\VC\vcvarsall.bat" %platform%
   - nmake test
   - nmake foo.exe AFLAGS=%AFLAGS%
-  - cd
-  - file foo.exe
-  - file "bin\\pthreadVC.dll"
 
 test_script:
   - foo.exe
