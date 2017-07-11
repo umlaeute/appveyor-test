@@ -10,6 +10,8 @@ matrix:
 
 environment:
   matrix:
+  - WISH=
+  - WISH=splash
   - platform: x86
     AFLAGS: "/D__i386__"
   - platform: x64
@@ -22,7 +24,8 @@ build_script:
   - call "%ProgramFiles%\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /%platform%
   - call "%VS120COMNTOOLS%\..\..\VC\vcvarsall.bat" %platform%
   - nmake test
-  - nmake foo.exe AFLAGS=%AFLAGS%
+  - if "%WISH%" == "" nmake foo.exe AFLAGS=%AFLAGS%
+  - if "%WISH%" != "" nmake foo.exe AFLAGS=%AFLAGS% WISH=%WISH%
 
 test_script:
   - foo.exe
