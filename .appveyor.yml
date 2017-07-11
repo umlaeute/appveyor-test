@@ -18,24 +18,6 @@ environment:
 
 shallow_clone: true
 
-
-install:
-  - echo init
-  - mkdir bin
-  - mkdir src
-
-#  - cat "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\INCLUDE\\io.h"
-#  - cat "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\INCLUDE\\errno.h"
-
-  - curl ftp://sourceware.org/pub/pthreads-win32/pthreads-w32-2-9-1-release.zip -o pthreads.zip
-  - 7z x -opthreads pthreads.zip  Pre-built.2/dll Pre-built.2/lib Pre-built.2/include
-  - set pthreaddir="%APPVEYOR_BUILD_FOLDER%\\pthreads\\Pre-built.2"
-  - cd "%pthreaddir%\\include" && copy "*.h" "%APPVEYOR_BUILD_FOLDER%\\src\\"
-  - cd "%pthreaddir%\\dll\\%platform%" && copy "pthreadVC2.dll" "%APPVEYOR_BUILD_FOLDER%\\bin\\pthreadVC.dll"
-  - cd "%pthreaddir%\\lib\\%platform%" && copy "pthreadVC2.lib" "%APPVEYOR_BUILD_FOLDER%\\bin\\pthreadVC.lib"
-  - cd "%APPVEYOR_BUILD_FOLDER%"
-  - dir src bin
-
 build_script:
   - echo build_script
   - call "%ProgramFiles%\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /%platform%
