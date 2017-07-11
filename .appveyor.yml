@@ -24,8 +24,8 @@ install:
   - mkdir bin
   - mkdir src
 
-  - cat "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\INCLUDE\\io.h"
-  - cat "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\INCLUDE\\errno.h"
+#  - cat "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\INCLUDE\\io.h"
+#  - cat "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\INCLUDE\\errno.h"
 
   - curl ftp://sourceware.org/pub/pthreads-win32/pthreads-w32-2-9-1-release.zip -o pthreads.zip
   - 7z x -opthreads pthreads.zip  Pre-built.2/dll Pre-built.2/lib Pre-built.2/include
@@ -44,17 +44,17 @@ build_script:
   - dir "%VS140COMNTOOLS%"
   - cd "%VS120COMNTOOLS%\..\..\VC"
   - cd
-  - dir
-  - cd "%ProgramFiles%"
-  - call dir /b/s SetEnv.bat
-  - call dir /b/s vcvarsall.bat
-  - cd "%APPVEYOR_BUILD_FOLDER%"
-  - set
-  - call "%VS120COMNTOOLS%\\..\\..\\VC\\bin\\nmake" test
-#  - echo "==================== vcvarsall.bat =================="
-#  - cat "%VS120COMNTOOLS%\..\..\VC\vcvarsall.bat"
-#  - echo "====================== setenv.bat ==================="
-#  - cat "%ProgramFiles%\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd"
+#  - dir
+#  - cd "%ProgramFiles%"
+#  - call dir /b/s SetEnv.bat
+#  - call dir /b/s vcvarsall.bat
+#  - cd "%APPVEYOR_BUILD_FOLDER%"
+#  - set
+#  - call "%VS120COMNTOOLS%\\..\\..\\VC\\bin\\nmake" test
+##  - echo "==================== vcvarsall.bat =================="
+##  - cat "%VS120COMNTOOLS%\..\..\VC\vcvarsall.bat"
+##  - echo "====================== setenv.bat ==================="
+##  - cat "%ProgramFiles%\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd"
   - echo "==================== ============= =================="
   - call "%VSSDK140Install%\Bin\SetEnv.cmd" /%platform%
   - call "%VS140COMNTOOLS%\..\..\VC\vcvarsall.bat" %platform%
