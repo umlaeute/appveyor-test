@@ -29,8 +29,8 @@ install:
         wget http://msp.ucsd.edu/Software/$file -OutFile $file
         &7z x -o%PROGRAMFILES% $file 
       }
-   - dir %PROGRAMFILES%
-   - dir %PROGRAMFILES%/Pd
+  - dir %PROGRAMFILES%
+  - dir %PROGRAMFILES%/Pd
 
 
 before_build:
