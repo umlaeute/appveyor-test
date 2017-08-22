@@ -21,6 +21,12 @@ environment:
 
 shallow_clone: true
 
+before_build:
+  - dir C:\
+  - dir C:\mingw64\
+  - dir C:\mingw64\bin
+
+
 build_script:
   - echo build_script
   - call "%ProgramFiles%\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /%platform%
