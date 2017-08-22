@@ -23,8 +23,10 @@ shallow_clone: true
 
 before_build:
   - dir C:\
-  - dir C:\mingw64\
-  - dir C:\mingw64\bin
+  - dir C:\MinGW\
+  - dir C:\mingw-w64\
+  - dir C:\MinGW\bin
+  - dir C:\mingw-w64\bin
 
 
 build_script:
