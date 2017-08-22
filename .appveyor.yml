@@ -21,12 +21,22 @@ environment:
 
 shallow_clone: true
 
+install:
+  - ps: |
+      if (-Not (Test-Path "%PROGRAMFILES%/Pd")) {
+        # Install MinGW.
+        $file = "pd-0.48-0.msw.zip"
+        wget http://msp.ucsd.edu/Software/$file -OutFile $file
+        &7z x -o%PROGRAMFILES% $file 
+      }
+
+
 before_build:
   - dir C:\
   - dir C:\MinGW\
   - dir C:\mingw-w64\
   - dir C:\MinGW\bin
-  - dir C:\mingw-w64\bin
+  - dir C:\mingw-w64\*
 
 
 build_script:
