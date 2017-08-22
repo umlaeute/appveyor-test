@@ -26,9 +26,10 @@ install:
       if (-Not (Test-Path "%PROGRAMFILES%/Pd")) {
         # Install MinGW.
         $file = "pd-0.48-0.msw.zip"
-        wget http://msp.ucsd.edu/Software/$file -OutFile $file
-        &7z x -bb3 -o"%PROGRAMFILES%" $file 
         echo "%PROGRAMFILES%"
+        echo "$ProgramFiles"
+        wget http://msp.ucsd.edu/Software/$file -OutFile $file
+        &7z x -bb3 -o"$ProgramFiles" $file 
       }
   - dir "%PROGRAMFILES%"
   - dir "%PROGRAMFILES%/Pd"
