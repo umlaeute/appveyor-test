@@ -23,17 +23,13 @@ shallow_clone: true
 
 install:
   - ps: |
-      if (-Not (Test-Path "%PROGRAMFILES%/Pd")) {
+      if (-Not (Test-Path "Pd")) {
         # Install MinGW.
         $file = "pd-0.48-0.msw.zip"
-        echo "%PROGRAMFILES%"
-        echo "$ProgramFiles"
         wget http://msp.ucsd.edu/Software/$file -OutFile $file
-        &7z x -bb3 -o"$ProgramFiles" $file 
+        &7z x -bb3 $file 
       }
-  - dir "%PROGRAMFILES%"
-  - dir "%PROGRAMFILES%/Pd"
-
+  - dir Pd
 
 before_build:
   - dir C:\
