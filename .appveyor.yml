@@ -27,7 +27,8 @@ install:
         # Install MinGW.
         $file = "pd-0.48-0.msw.zip"
         wget http://msp.ucsd.edu/Software/$file -OutFile $file
-        &7z x -o"%PROGRAMFILES%" $file 
+        &7z x -bb3 -o"%PROGRAMFILES%" $file 
+        echo "%PROGRAMFILES%"
       }
   - dir "%PROGRAMFILES%"
   - dir "%PROGRAMFILES%/Pd"
