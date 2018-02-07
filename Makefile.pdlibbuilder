@@ -605,7 +605,7 @@ PDBINDIR ?= $(pdbinpath)
 PDLIBDIR ?= $(firstword $(objectsdir) $(pkglibdir))
 
 ifneq ($(PDDIR),)
-  PDINCLUDEDIR := $(wildcard $(PDDIR)/src)
+  PDINCLUDEDIR := $(wildcard $(PDDIR)/src $(PDDIR)/include)
   PDBINDIR := $(wildcard $(PDDIR)/bin)
 endif
 
