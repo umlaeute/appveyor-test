@@ -3,12 +3,12 @@
     asm(".ascii \"" MY_VERSION_STRING "\"\n\t");
 #elif defined(_MSC_VER)
 # if defined(_WIN64)
-#  pragma warning w64 embedding
+#  pragma message w64 embedding
 #  pragma comment(user, MY_VERSION_STRING)
-#  pragma comment(user, "Frobnozzel user win32")
-#  pragma comment(exestr, "Frobnozzel exestr win32")
+#  pragma comment(user, "Frobnozzel user win64")
+#  pragma comment(exestr, "Frobnozzel exestr win64")
 # elif defined(_WIN32)
-#  pragma warning w32 embedding
+#  pragma message w32 embedding
 //    __asm db MY_VERSION_STRING
 #  pragma comment(user, "Frobnozzel user win32")
 #  pragma comment(exestr, "Frobnozzel exestr win32")
