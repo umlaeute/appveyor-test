@@ -1,50 +1,17 @@
-## AppVeyor configuration for Pure Data
-#
-# this automatically builds Pd for W32 using VisualStudio,
-# whenever a new commit is pushed to github...
-#   https://ci.appveyor.com/pure-data/pure-data
-
-matrix:
-  allow_failures:
-    - platform: x64
-
 environment:
   matrix:
   - platform: x86
     AFLAGS: "/D__i386__"
   - platform: x64
     AFLAGS: "/D__x86_64__"
-  - platform: x64
-    AFLAGS: "/D__x86_64__"
-    WISH: "splash"
-
 
 shallow_clone: true
-
-install:
-  - ps: |
-      if (-Not (Test-Path "Pd")) {
-        # Install MinGW.
-        $file = "pd-0.48-0.msw.zip"
-        wget http://msp.ucsd.edu/Software/$file -OutFile $file
-        &7z x -bb3 $file 
-      }
-  - dir Pd
-
-before_build:
-  - dir C:\
-  - dir C:\MinGW\
-  - dir C:\mingw-w64\
-  - dir C:\MinGW\bin
-  - dir C:\mingw-w64\x86_64-6.3.0-posix-seh-rt_v5-rev1
-
 
 build_script:
   - echo build_script
   - call "%ProgramFiles%\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /%platform%
   - call "%VS120COMNTOOLS%\..\..\VC\vcvarsall.bat" %platform%
-  - nmake test
-  - if "%WISH%" == "" (nmake foo.exe AFLAGS=%AFLAGS%) else (nmake foo.exe AFLAGS=%AFLAGS% WISH=%WISH%)
+  - nmake
 
 test_script:
   - foo.exe
