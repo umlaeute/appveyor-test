@@ -16,13 +16,13 @@
 int main() {
   printf("hello world\n");
 #ifdef _WIN32
-  print("_WIN32\n");
+  printf("_WIN32\n");
 #endif
 #ifdef _WIN64
-  print("_WIN64\n");
+  printf("_WIN64\n");
 #endif
 #ifdef _MSV_VER
-  print("_MSV_VER\n");
+  printf("_MSV_VER\n");
 #endif
   return 0;
 }
