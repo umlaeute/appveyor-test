@@ -14,10 +14,10 @@ build_script:
   - nmake
 
 test_script:
-  - foo.exe
+  - test.exe
 
 deploy: off
 
 artifacts:
-  - path: foo.exe
-    name: Foo%platform%
+  - path: test.exe
+    name: AVTest-%platform%
