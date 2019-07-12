@@ -1,0 +1,4 @@
+appveyor.yml
+============
+
+inthe master-branch we were using https://users.iem.at/zmoelnig/appveyor/pd-libdir.yml
