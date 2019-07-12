@@ -1,3 +1,4 @@
+#if 0
 #define MY_VERSION_STRING "Frobnozzel v0.1; (c) 2019 ACME; GPLv3 "
 #if defined(__GNUC__)
     asm(".ascii \"" MY_VERSION_STRING "\"\n\t");
@@ -8,7 +9,7 @@
 #  pragma comment(user, MY_VERSION_STRING
 # endif
 #endif
-
+#endif
 
 #include <stdio.h>
 
